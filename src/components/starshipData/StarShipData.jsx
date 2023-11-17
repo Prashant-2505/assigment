@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './StarShipData.style.css'; // Add your styling for StarShipData
+import './StarShipData.style.css'; 
 import hamburger from '../../assets/icons/hamburger.png';
 import grid from '../../assets/icons/grid.png';
 import {
