@@ -10,14 +10,34 @@ import {
   Th,
   Td,
   TableContainer,
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Button,
 } from '@chakra-ui/react';
+import { PiFilmReel } from 'react-icons/pi';
+import { CiMenuKebab } from 'react-icons/ci';
+import { IoEyeOutline } from "react-icons/io5";
+import { MdOutlineFileDownload, MdDriveFileRenameOutline, MdFileCopy } from "react-icons/md";
+import { CiShare2, CiLock } from "react-icons/ci";
+import { RiDeleteBinLine } from "react-icons/ri";
+import Modal from '../misc/Modal'
 
 const PlanetData = ({ data }) => {
   const [isGrid, setIsGrid] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedPlanet, setSelectedPlanet] = useState(null);
 
   const toggleDisplayMode = () => {
     setIsGrid((prevIsGrid) => !prevIsGrid);
   };
+
+  const toggleDropdown = (planet) => {
+    setShowDropdown(!showDropdown);
+    setSelectedPlanet(film);
+  };
+
 
   return (
     <div className={`planet-data ${isGrid ? 'grid-mode' : 'list-mode'}`}>
@@ -36,9 +56,32 @@ const PlanetData = ({ data }) => {
                   <img src="https://via.placeholder.com/647x218" alt="Star Wars" />
                 </div>
                 <div className="planet-info">
-                  <h3>{planet.name}</h3>
-                  <p>btn</p>
-                </div>
+                <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <PiFilmReel />
+                  {planet.name}
+                </p>
+
+
+                <Menu>
+                  <MenuButton as={Button} >
+                    <CiMenuKebab
+                      className="menu-icon"
+                      onClick={() => toggleDropdown(film)}
+                    />
+                  </MenuButton>
+                  <MenuList style={{ color: "black", background: "white" }}>
+                    <MenuItem className='dropDown-item'><IoEyeOutline /> View</MenuItem>
+                    <MenuItem className='dropDown-item'><MdOutlineFileDownload />Download</MenuItem>
+                    <MenuItem className='dropDown-item'><MdDriveFileRenameOutline />Rename</MenuItem>
+                    <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
+                    <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
+                    <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
+                    <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                      <Modal title={planet.name} />
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
+              </div>
             </div>
           ))
         ) : (
@@ -59,6 +102,28 @@ const PlanetData = ({ data }) => {
                       <Td>{planet.name}</Td>
                       <Td>{planet.climate}</Td>
                       <Td>{planet.gravity}</Td>
+                      <Td>
+                        <Menu>
+                          <MenuButton as={Button} >
+                            <CiMenuKebab
+                              className="menu-icon"
+                              onClick={() => toggleDropdown(planet)}
+                            />
+                          </MenuButton>
+                          <MenuList style={{ color: "black", background: "white" }}>
+                            <MenuItem className='dropDown-item'><IoEyeOutline /> View</MenuItem>
+                            <MenuItem className='dropDown-item'><MdOutlineFileDownload />Download</MenuItem>
+                            <MenuItem className='dropDown-item'><MdDriveFileRenameOutline />Rename</MenuItem>
+                            <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
+                            <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
+                            <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
+                            <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                              <Modal title={planet.name} />
+                            </MenuItem>
+                          </MenuList>
+                        </Menu>
+
+                      </Td>
                     </Tr>
                   ))}
                 </Tbody>

@@ -22,6 +22,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { MdOutlineFileDownload, MdDriveFileRenameOutline, MdFileCopy } from "react-icons/md";
 import { CiShare2, CiLock } from "react-icons/ci";
 import { RiDeleteBinLine } from "react-icons/ri";
+import Modal from '../misc/Modal'
 
 const FilmsData = ({ data }) => {
   const [isGrid, setIsGrid] = useState(true);
@@ -74,8 +75,9 @@ const FilmsData = ({ data }) => {
                     <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
                     <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
                     <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
-                    <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />Delete</MenuItem>
-
+                    <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                      <Modal title={film.title} />
+                    </MenuItem>
                   </MenuList>
                 </Menu>
               </div>
@@ -114,8 +116,9 @@ const FilmsData = ({ data }) => {
                             <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
                             <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
                             <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
-                            <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />Delete</MenuItem>
-
+                            <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                              <Modal title={film.title} />
+                            </MenuItem>
                           </MenuList>
                         </Menu>
 

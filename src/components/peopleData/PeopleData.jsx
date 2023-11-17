@@ -10,18 +10,35 @@ import {
   Th,
   Td,
   TableContainer,
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Button,
 } from '@chakra-ui/react';
+import { PiFilmReel } from 'react-icons/pi';
+import { CiMenuKebab } from 'react-icons/ci';
+import { IoEyeOutline } from "react-icons/io5";
+import { MdOutlineFileDownload, MdDriveFileRenameOutline, MdFileCopy } from "react-icons/md";
+import { CiShare2, CiLock } from "react-icons/ci";
+import { RiDeleteBinLine } from "react-icons/ri";
+import Modal from '../misc/Modal'
 
 const PeopleData = ({ data }) => {
   const [isGrid, setIsGrid] = useState(true);
+  const [selectedPeople, setSelectedPeople] = useState(null);
+
 
   const toggleDisplayMode = () => {
     setIsGrid((prevIsGrid) => !prevIsGrid);
   };
 
+  const toggleDropdown = (people) => {
+    setShowDropdown(!showDropdown);
+    setSelectedFilm(people);
+  };
   return (
-    <div className={`people-data ${isGrid ? 'grid-mode' : 'list-mode'}`}>
-      <div className="heading">
+    <div className={`people-data ${isGrid ? 'grid-mode' : 'list-mode'}`}>      <div className="heading">
         <p>People</p>
         <div className="toggle-btn" onClick={toggleDisplayMode}>
           <img src={isGrid ? grid : hamburger} alt="" />
@@ -37,8 +54,31 @@ const PeopleData = ({ data }) => {
                   <img src="https://via.placeholder.com/647x218" alt="Star Wars" />
                 </div>
                 <div className="film-info">
-                  <h3>{person.name}</h3>
-                  <p>btn</p>
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <PiFilmReel />
+                    {person.name}
+                  </p>
+
+
+                  <Menu>
+                    <MenuButton as={Button} >
+                      <CiMenuKebab
+                        className="menu-icon"
+                        onClick={() => toggleDropdown(film)}
+                      />
+                    </MenuButton>
+                    <MenuList style={{ color: "black", background: "white" }}>
+                      <MenuItem className='dropDown-item'><IoEyeOutline /> View</MenuItem>
+                      <MenuItem className='dropDown-item'><MdOutlineFileDownload />Download</MenuItem>
+                      <MenuItem className='dropDown-item'><MdDriveFileRenameOutline />Rename</MenuItem>
+                      <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
+                      <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
+                      <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
+                      <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                        <Modal title={person.name} />
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
                 </div>
               </div>
             </div>
@@ -61,7 +101,29 @@ const PeopleData = ({ data }) => {
                       <Td>{person.name}</Td>
                       <Td>{person.birthdate}</Td>
                       <Td>{person.species}</Td>
-                      {/* Add other person details */}
+                      <Td>
+                        <Menu>
+                          <MenuButton as={Button} >
+                            <CiMenuKebab
+                              className="menu-icon"
+                              onClick={() => toggleDropdown(film)}
+                            />
+                          </MenuButton>
+                          <MenuList style={{ color: "black", background: "white" }}>
+                            <MenuItem className='dropDown-item'><IoEyeOutline /> View</MenuItem>
+                            <MenuItem className='dropDown-item'><MdOutlineFileDownload />Download</MenuItem>
+                            <MenuItem className='dropDown-item'><MdDriveFileRenameOutline />Rename</MenuItem>
+                            <MenuItem className='dropDown-item'> <CiShare2 />Share link</MenuItem>
+                            <MenuItem className='dropDown-item'><MdFileCopy />Move</MenuItem>
+                            <MenuItem className='dropDown-item'><CiLock />Mark Private</MenuItem>
+                            <MenuItem className='dropDown-item delete' color={'red'}><RiDeleteBinLine />
+                              <Modal title={person.name} />
+                            </MenuItem>
+                          </MenuList>
+                        </Menu>
+
+                      </Td>
+
                     </Tr>
                   ))}
                 </Tbody>

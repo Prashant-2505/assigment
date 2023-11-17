@@ -21,13 +21,19 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 2rem;
     overflow: scroll;
+}
+.species-data-items-list {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    padding: 1rem;
 }
 .species-item-grid
 {
-    border: 2px solid red;
-    border-radius: 10px;
+    border-radius: 5px;
+
 }
 .species-img
 {
@@ -36,13 +42,32 @@
 .species-img>img
 {
     height: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .species-info
 {
-    height: 20%;
+    height: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem;
+    background: #F9FAFD4D;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.species-item-list
+{
+    width: 100%;
+}
+
+.menu-icon
+{
+    cursor: pointer;
+}
+.dropDown-item
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
 }

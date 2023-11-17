@@ -1,4 +1,4 @@
-.starShip-data
+.vehicle-data
 {
     width: 100%;
     height: calc(100% - 1.8rem);
@@ -16,7 +16,7 @@
     width: 10%;
     
 }
-.starShip-data-items {
+.vehicle-data-items {
     height: 100%;
     width: 100%;
     display: grid;
@@ -24,27 +24,27 @@
     gap: 2rem;
     overflow: scroll;
 }
-.starShip-data-items-list {
+.vehicle-data-items-list {
     height: 100%;
     width: 100%;
     overflow: scroll;
     padding: 1rem;
 }
-.starShip-item-grid
+.vehicle-item-grid
 {
     border-radius: 5px;
 
 }
-.starShip-img
+.vehicle-img
 {
     height: 80%;
 }
-.starShip-img>img
+.vehicle-img>img
 {
     height: 100%;
     border-radius: 5px;
 }
-.starShip-info
+.vehicle-info
 {
     height: 30%;
     display: flex;
@@ -55,7 +55,7 @@
     margin-top: 5px;
     border-radius: 5px;
 }
-.starShip-item-list
+.vehicle-item-list
 {
     width: 100%;
 }
