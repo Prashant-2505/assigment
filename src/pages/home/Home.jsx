@@ -5,7 +5,7 @@ import { PiFilmReel } from "react-icons/pi";
 import FilmData from '../../components/filmData/FilmData';
 import PlanetData from '../../components/planetData/PlanetData';
 import PeopleData from '../../components/peopleData/PeopleData';
- import StarshipData from '../../components/starshipData/StarshipData';
+import StarshipData from '../../components/starshipData/StarshipData';
 import SpeciesData from '../../components/speciesData/SpeciesData';
 import VehicleData from '../../components/vehicleData/Vehicles';
 
@@ -44,9 +44,9 @@ const Home = () => {
       <div className="side-bar">
         <Accordion allowToggle>
           {['Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'].map((category) => (
-            <AccordionItem style={{border:'2px'}} key={category}>
+            <AccordionItem style={{ border: '2px' }} key={category}>
               <h2>
-                <AccordionButton _expanded={{ bg: '#CB1A80', color: 'white'  }} onClick={() => handleCategoryClick(category)}>
+                <AccordionButton _expanded={{ bg: '#CB1A80', color: 'white' }} onClick={() => handleCategoryClick(category)}>
                   <Box as="span" flex='1' textAlign='left'>
                     {category}
                   </Box>
@@ -73,7 +73,7 @@ const Home = () => {
         {expandedCategory ? (
           // Render table view when a category is selected
           <div className='right-container-data'>
-            
+
             {categoryData ? (
               // Render specific component based on the selected category
               <>
