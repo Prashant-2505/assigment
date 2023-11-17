@@ -5,7 +5,6 @@ import { PiFilmReel } from "react-icons/pi";
 import FilmData from '../../components/filmData/FilmData';
 import PlanetData from '../../components/planetData/PlanetData';
 import PeopleData from '../../components/peopleData/PeopleData';
- import StarshipData from '../../components/starshipData/StarshipData';
 import SpeciesData from '../../components/speciesData/SpeciesData';
 import VehicleData from '../../components/vehicleData/Vehicles';
 
@@ -81,7 +80,6 @@ const Home = () => {
                 {expandedCategory === 'People' && <PeopleData data={categoryData} />}
                 {expandedCategory === 'Planets' && <PlanetData data={categoryData} />}
                 {expandedCategory === 'Species' && <SpeciesData data={categoryData} />}
-                {expandedCategory === 'Starships' && <StarshipData data={categoryData} />}
                 {expandedCategory === 'Vehicles' && <VehicleData data={categoryData} />}
 
               </>
