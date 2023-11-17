@@ -1,0 +1,48 @@
+.people-data
+{
+    width: 100%;
+    height: calc(100% - 1.8rem);
+    padding: 1rem;
+}
+.heading
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+.toggle-btn
+{
+    display: flex;
+    width: 10%;
+    
+}
+.people-data-items {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    overflow: scroll;
+}
+.people-item-grid
+{
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.people-img
+{
+    height: 80%;
+}
+.people-img>img
+{
+    height: 100%;
+    border-radius: 10px;
+}
+.people-info
+{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+}
